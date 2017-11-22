@@ -2,19 +2,16 @@
 var request = require("request");
 var Twitter = require("twitter");
 var Spotify = require("node-spotify-api");
-var inquirer = require("inquirer");
 var fs = require("fs");
-var keys = require("./key.js");
+var keys = require("./keys.js");
 
 
 var action = process.argv[2]; // input like "my-tweets", "spotify-this-song", "movie-this", "do-what-it-says"
 var query = []; // like song name or movie name
 
+
 //spotify api call
-var spotify = new Spotify({
-  id: "c27dff3670394e2bbea560cc3bbf24ef",
-  secret: "88e22d94181b44d5b638f8b009cd5054"
-});
+ var spotify = new Spotify(keys.spotifyKeys);
 
 // Run the LIRI-Bot
 liri_func(action, query);
